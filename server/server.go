@@ -27,12 +27,8 @@ func newTlsServer() *TlsServer {
 	return t
 }
 
-//func (t *TlsServer) message()  {
-//
-//}
-
 func main() {
-	lis, err := net.Listen("tcp", fmt.Sprintf("localhost:%d", 36001))
+	lis, err := net.Listen("tcp", fmt.Sprintf("localhost:%d", 8081))
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}

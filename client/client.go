@@ -43,7 +43,7 @@ func main() {
 	}
 	opts = append(opts, grpc.WithTransportCredentials(tlsCredentials))
 	d := tlsservice.Data{D: "Client message"}
-	conn, err := grpc.Dial("localhost:36001", opts...)
+	conn, err := grpc.Dial("localhost:8081", opts...)
 	if err != nil {
 		log.Fatalf("fail to dial: %v", err)
 	}
@@ -52,6 +52,10 @@ func main() {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	resp, _ := client.Message(ctx, &d)
+	resp, err := client.Message(ctx, &d)
+	if err != nil {
+		log.Fatalf("Error when sending message to server: %v", err)
+	}
 	fmt.Println(resp)
+	time.Sleep(5 * time.Second)
 }
