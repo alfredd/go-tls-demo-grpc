@@ -57,5 +57,4 @@ func main() {
 		log.Fatalf("Error when sending message to server: %v", err)
 	}
 	fmt.Println(resp)
-	time.Sleep(5 * time.Second)
 }
