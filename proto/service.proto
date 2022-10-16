@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package tlsservice;
+
+service TlsCommunicator {
+    rpc message (Data) returns (Data);
+}
+
+message Data {
+    string d = 1;
+}
