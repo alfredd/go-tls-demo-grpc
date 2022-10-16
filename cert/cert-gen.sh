@@ -13,6 +13,8 @@ openssl req -newkey rsa:4096 -nodes -keyout server-key.pem -out server-req.pem -
 
 # 3. Use CA's private key to sign web server's CSR and get back the signed certificate
 openssl x509 -req -in server-req.pem -days 60 -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -out server-cert.pem -extfile server-ext.cnf
+#Updated -extfile based on input from https://chowdera.com/2022/199/202207181303421208.html
+
 
 echo "Server's signed certificate"
 openssl x509 -in server-cert.pem -noout -text
