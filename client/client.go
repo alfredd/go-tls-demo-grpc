@@ -6,9 +6,6 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello World!")
-	d := tlsservice.Data{
-		D: "Some Message.",
-	}
+	d := tlsservice.Data{D: "Client message"}
 	fmt.Println(d)
 }
