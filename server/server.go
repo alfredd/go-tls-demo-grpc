@@ -16,7 +16,6 @@ type TlsServer struct {
 }
 
 func (t *TlsServer) Message(ctx context.Context, data *tlsservice.Data) (*tlsservice.Data, error) {
-	//TODO implement me
 	log.Println("Received message from client: ", data)
 	return &tlsservice.Data{D: fmt.Sprintf("Response: %v", data.D)}, nil
 }
